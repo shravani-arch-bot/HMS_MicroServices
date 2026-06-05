@@ -93,6 +93,24 @@ http://localhost:9090/bills
 http://localhost:9090/auth
 ```
 
+## Screenshots
+
+### Eureka Dashboard
+
+![Eureka](docs/screenshots/eureka-dashboard.png)
+
+### Docker Compose
+
+![Docker](docs/screenshots/docker-compose-running.png)
+
+### JWT Authentication
+
+![JWT](docs/screenshots/jwt-token-generation.png)
+
+### Appointment Booking
+
+![Appointment](docs/screenshots/appointment-booking.png)
+
 ## Future Enhancements
 
 - React Frontend Integration
