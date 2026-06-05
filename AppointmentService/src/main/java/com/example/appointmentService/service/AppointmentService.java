@@ -23,8 +23,7 @@ public class AppointmentService {
     public String bookAppointment(Appointment appointment) {
         try {
 
-            String url = "http://PATIENT-SERVICE/patients/" + appointment.getPatientId();
-
+           String url = "http://host.docker.internal:8080/patients/" + appointment.getPatientId();
             Map patient = restTemplate.getForObject(url, Map.class);
 
             if (patient == null || patient.isEmpty()) {
@@ -42,7 +41,7 @@ public class AppointmentService {
             bill.put("amount", 1500);
 
             restTemplate.postForObject(
-                    "http://BILLING-SERVICE/bills",
+                    "http://host.docker.internal:8083/bills",
                     bill,
                     String.class
             );

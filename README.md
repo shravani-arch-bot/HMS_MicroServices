@@ -1,81 +1,107 @@
-HMS Microservices - Hospital Management System
+# HMS Microservices - Hospital Management System
 
-Backend-based Hospital Management System developed using Spring Boot Microservices architecture.
+A Hospital Management System built using Spring Boot Microservices architecture with service discovery, API Gateway, JWT authentication, Docker, and MySQL.
 
-Features
-Patient Management
-Appointment Booking
-Billing Service
-JWT Authentication
-Role-Based Authorization
-API Gateway Routing
-Eureka Service Discovery
-Inter-service Communication
+## Features
 
-Tech Stack:
-Java 17
-Spring Boot
-Spring Security
-Spring Cloud Gateway
-Eureka Server
-JWT
-REST APIs
-MySQL
-JPA / Hibernate
-Maven
-Microservices
-Service	Port
-Eureka Server	8761
-API Gateway	9090
-Patient Service	8080
-Appointment Service	8082
-Billing Service	8083
-Auth Service	8084
+- Patient Management
+- Appointment Booking
+- Billing Management
+- JWT Authentication
+- Role-Based Authorization
+- API Gateway Routing
+- Eureka Service Discovery
+- Inter-Service Communication
+- Dockerized Microservices
+- Docker Compose Support
 
-Architecture
-CClient / Postman
-        ↓
+## Tech Stack
+
+- Java 17
+- Spring Boot
+- Spring Security
+- Spring Cloud Gateway
+- Eureka Server
+- JWT
+- REST APIs
+- MySQL
+- JPA / Hibernate
+- Maven
+- Docker
+- Docker Compose
+
+## Services
+
+| Service | Port |
+|----------|------|
+| Eureka Server | 8761 |
+| API Gateway | 9090 |
+| Patient Service | 8080 |
+| Appointment Service | 8082 |
+| Billing Service | 8083 |
+| Auth Service | 8084 |
+
+## Architecture
+
+
+Client / Postman
+        │
+        ▼
 API Gateway (9090)
-        ↓
- ┌─────────────────────────────┐
- │         Eureka Server       │
- │            (8761)           │
- └─────────────────────────────┘
-        ↓
-------------------------------------------------
-|               Microservices                  |
-------------------------------------------------
-| Patient Service       → Port 8080           |
-| Appointment Service   → Port 8082           |
-| Billing Service       → Port 8083           |
-| Auth Service          → Port 8084           |
-------------------------------------------------
+        │
+        ▼
+Eureka Server (8761)
+        │
+ ┌──────┼───────────────┐
+ │      │       │       │
+ ▼      ▼       ▼       ▼
 
-Security
-JWT-based Authentication
-PATIENT role can book appointments
-ADMIN role can access billing APIs
+Patient Service      (8080)
+Appointment Service  (8082)
+Billing Service      (8083)
+Auth Service         (8084)
+```
 
-Run Project
+## Security
 
-Start services in order:
+- JWT-based Authentication
+- Protected API Endpoints
+- Role-Based Access Control
+- ADMIN access for Billing APIs
+- PATIENT access for Appointment APIs
 
-1. Eureka Server
-2. Patient Service
-3. Billing Service
-4. Auth Service
-5. Appointment Service
-6. API Gateway
+## Run with Docker Compose
 
-Run each service:
-.\mvnw.cmd spring-boot:run
+```bash
+docker compose up -d
+```
 
-Future Enhancements
-React Frontend
-Docker Deployment
-PostgreSQL Migration
-Cloud Deployment
-Swagger Documentation
+Stop all services:
 
-Author
-Shravani Kulte
+```bash
+docker compose down
+```
+
+## API Testing
+
+Access services through API Gateway:
+
+```text
+http://localhost:9090/patients
+http://localhost:9090/appointments
+http://localhost:9090/bills
+http://localhost:9090/auth
+```
+
+## Future Enhancements
+
+- React Frontend Integration
+- OpenFeign Communication
+- CI/CD Pipeline
+- Cloud Deployment
+- Swagger Documentation
+- Monitoring & Logging
+
+## Author
+
+**Shravani Kulte**
